@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MRJViewState_Example' do
+  pod 'MRJViewState', :path => '../'
+
+  target 'MRJViewState_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
