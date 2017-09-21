@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface MRHViewController : UIViewController
+@interface MRJViewController : UIViewController
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2017 mrjlovetian@gmail.com. All rights reserved.
 //
 
-#import "MRHViewController.h"
+#import "MRJViewController.h"
 
-@interface MRHViewController ()
+@interface MRJViewController ()
 
 @end
 
-@implementation MRHViewController
+@implementation MRJViewController
 
 - (void)viewDidLoad
 {

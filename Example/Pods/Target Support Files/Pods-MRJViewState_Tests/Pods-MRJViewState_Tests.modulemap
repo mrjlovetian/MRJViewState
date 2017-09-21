@@ -1,0 +1,6 @@
+framework module Pods_MRJViewState_Tests {
+  umbrella header "Pods-MRJViewState_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

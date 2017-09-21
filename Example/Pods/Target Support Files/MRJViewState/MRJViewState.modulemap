@@ -1,0 +1,6 @@
+framework module MRJViewState {
+  umbrella header "MRJViewState-umbrella.h"
+
+  export *
+  module * { export * }
+}

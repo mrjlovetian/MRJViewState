@@ -6,9 +6,9 @@
 //  Copyright (c) 2017 mrjlovetian@gmail.com. All rights reserved.
 //
 
-#import "MRHAppDelegate.h"
+#import "MRJAppDelegate.h"
 
-@implementation MRHAppDelegate
+@implementation MRJAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -1,0 +1,22 @@
+PODS:
+  - Masonry (1.0.2)
+  - MRJViewState (0.1.0):
+    - Masonry
+    - SVProgressHUD
+  - SVProgressHUD (2.2.1)
+
+DEPENDENCIES:
+  - MRJViewState (from `../`)
+
+EXTERNAL SOURCES:
+  MRJViewState:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MRJViewState: 66bb7760225f5788be5a2b068be2f3a715e647b3
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+
+PODFILE CHECKSUM: 618dad142415e66052e4aba97ff99088a78e2b15
+
+COCOAPODS: 1.3.1
