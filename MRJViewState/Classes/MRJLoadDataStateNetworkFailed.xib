@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network_error" translatesAutoresizingMaskIntoConstraints="NO" id="rJV-8s-KX5">
+                    <rect key="frame" x="147.5" y="279.5" width="80" height="54"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络中断" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDI-2d-I7s">
+                    <rect key="frame" x="161.5" y="347.5" width="53.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请点击屏幕刷新" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4H-l1-vsq">
+                    <rect key="frame" x="141.5" y="363.5" width="93" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-cY-ZLj">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gA5-cY-ZLj" secondAttribute="bottom" id="3BU-zh-95I"/>
+                <constraint firstItem="gA5-cY-ZLj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5D2-n3-djh"/>
+                <constraint firstAttribute="trailing" secondItem="gA5-cY-ZLj" secondAttribute="trailing" id="B5o-n2-gpb"/>
+                <constraint firstAttribute="centerX" secondItem="rJV-8s-KX5" secondAttribute="centerX" id="CNQ-XL-Mjy"/>
+                <constraint firstItem="J4H-l1-vsq" firstAttribute="top" secondItem="eDI-2d-I7s" secondAttribute="bottom" id="XqH-Ch-Yb1"/>
+                <constraint firstAttribute="bottom" secondItem="rJV-8s-KX5" secondAttribute="bottom" multiplier="2" id="XvS-f6-eRw"/>
+                <constraint firstItem="eDI-2d-I7s" firstAttribute="top" secondItem="rJV-8s-KX5" secondAttribute="bottom" constant="14" id="Ybw-Ed-L7L"/>
+                <constraint firstItem="gA5-cY-ZLj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zw5-Jp-SKm"/>
+                <constraint firstItem="eDI-2d-I7s" firstAttribute="centerX" secondItem="rJV-8s-KX5" secondAttribute="centerX" id="jfx-NT-9A5"/>
+                <constraint firstItem="J4H-l1-vsq" firstAttribute="centerX" secondItem="eDI-2d-I7s" secondAttribute="centerX" id="mso-F7-ey3"/>
+            </constraints>
+            <point key="canvasLocation" x="-580.5" y="-102.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="network_error" width="80" height="54"/>
+    </resources>
+</document>

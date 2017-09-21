@@ -1,9 +1,9 @@
 {
   "name": "MRJViewState",
   "version": "0.1.0",
-  "summary": "A short description of MRJViewState.",
+  "summary": "网络加载时的填充页面，处理网络请求回来的各种状态展示",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/mrjlovetian@gmail.com/MRJViewState",
+  "homepage": "https://github.com/mrjlovetian/MRJViewState",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "mrjlovetian@gmail.com": "mrjyuhongjiang@gmail.com"
   },
   "source": {
-    "git": "https://github.com/mrjlovetian@gmail.com/MRJViewState.git",
+    "git": "https://github.com/mrjlovetian/MRJViewState.git",
     "tag": "0.1.0"
   },
   "platforms": {

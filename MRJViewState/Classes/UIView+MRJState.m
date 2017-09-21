@@ -30,7 +30,6 @@
 -(void)setCurrentLoadingState:(MRJLoadDataState)currentLoadingState{
     
     if (self.currentLoadingState != currentLoadingState) {
-        
         if (self.currentLoadingState == MRJLoadDataStateNoData) {
             [self.noDataView removeFromSuperview];
             self.noDataView = nil;
@@ -101,10 +100,10 @@
         }
         if (stateView) {
             [superView addSubview:stateView];
-            UIEdgeInsets insets=self.loadingStateProperties.loadingAreaInsets;
+            UIEdgeInsets insets = self.loadingStateProperties.loadingAreaInsets;
             
-            if (self.loadingStateProperties.ignoreNavBar==NO) {
-                insets.top+=64;
+            if (self.loadingStateProperties.ignoreNavBar == NO) {
+                insets.top += 64;
             }
             
             [stateView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -187,7 +186,8 @@
                 make.edges.equalTo(bgView);
             }];
         }else{
-            UIView *networkFailedView= [[[NSBundle mainBundle] loadNibNamed:@"KKLoadDataStateNetworkFailed" owner:nil options:nil] lastObject];
+            
+            UIView *networkFailedView= [[[NSBundle bundleForClass:[MRJLoadStateProperty class]] loadNibNamed:@"MRJLoadDataStateNetworkFailed" owner:nil options:nil] lastObject];
             objc_setAssociatedObject(self, _cmd, networkFailedView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             [((UIButton*)[networkFailedView viewWithTag:1]) addTarget:self action:@selector(reloadNetworkBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -223,12 +223,12 @@
                 make.edges.equalTo(bgView);
             }];
         }else{
-            SVProgressHUD *kkLoadingDataView = [[SVProgressHUD alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+            SVProgressHUD *MRJLoadingDataView = [[SVProgressHUD alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
             [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
             [SVProgressHUD setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.8f]];
-            [bgView addSubview:kkLoadingDataView];
-            [bgView addSubview:[kkLoadingDataView valueForKey:@"overlayView"]];
-            [kkLoadingDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [bgView addSubview:MRJLoadingDataView];
+//            [bgView addSubview:[MRJLoadingDataView valueForKey:@"overlayView"]];
+            [MRJLoadingDataView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(bgView);
             }];
         }
@@ -246,9 +246,9 @@
 }
 -(UIView *)MRJLoadingDataView{
     if (objc_getAssociatedObject(self, _cmd)==nil) {
-        UIView *bgView=UIView.new;
+        UIView *bgView = UIView.new;
         bgView.backgroundColor = LoadingStateBackgroundColor;
-        UIView *customerView=[self.loadingStateProperties customerViewForLoadState:MRJLoadDataStateInitalLoading];
+        UIView *customerView = [self.loadingStateProperties customerViewForLoadState:MRJLoadDataStateInitalLoading];
         if (customerView) {
             [bgView addSubview:customerView];
             [customerView mas_makeConstraints:^(MASConstraintMaker *make) {

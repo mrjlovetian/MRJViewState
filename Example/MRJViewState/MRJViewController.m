@@ -7,6 +7,7 @@
 //
 
 #import "MRJViewController.h"
+#import <MRJViewState/UIView+MRJState.h>
 
 @interface MRJViewController ()
 
@@ -17,7 +18,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(60, 60, 60, 60);
+    btn.backgroundColor = [UIColor redColor];
+    [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)click:(UIButton *)btn{
+    self.view.currentLoadingState = MRJLoadDataStateLoading;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.view.currentLoadingState = MRJLoadDataStateNoData;
+    });
 }
 
 - (void)didReceiveMemoryWarning

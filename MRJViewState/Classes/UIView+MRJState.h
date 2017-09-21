@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
 @class MRJLoadStateProperty;
-
-
 
 typedef NS_ENUM(NSInteger, MRJLoadDataState){
     MRJLoadDataStateDefault=0,
@@ -23,22 +20,23 @@ typedef NS_ENUM(NSInteger, MRJLoadDataState){
 
 /*
  一行代码设置加载状态
- self.view.currentLoadingState=MRJLoadDataState;
- 或 self.tableView.currentLoadingState=MRJLoadDataState;
+ self.view.currentLoadingState = MRJLoadDataState;
+ 或 self.tableView.currentLoadingState = MRJLoadDataState;
  
  其它可设置属性，可在loadingStateProperties设置
  加载区域为self 的父类bounds
  并将加载view加入到self的superview子视图
  */
-
-
 @interface UIView (MRJState)
+
 @property(nonatomic)MRJLoadDataState currentLoadingState;
-@property(nonatomic,readonly)MRJLoadStateProperty *loadingStateProperties;
+
+@property(nonatomic, readonly)MRJLoadStateProperty *loadingStateProperties;
 
 @end
 
 @interface NSError (UIViewState)
+
 @property(nonatomic)BOOL shouldHideReload;
 @end
 
