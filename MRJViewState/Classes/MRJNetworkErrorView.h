@@ -9,16 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class MRJNetworkErrorView;
-@protocol KKNetworkErrorViewDelegate
+@protocol MRJNetworkErrorViewDelegate
 
--(void)clickRefreshKKNetworkErrorView:(MRJNetworkErrorView*) view;
+@required
+- (void)clickRefreshKKNetworkErrorView:(MRJNetworkErrorView*)view;
 
 @end
 
 @interface MRJNetworkErrorView : UIView
 
-@property (nonatomic,weak) id<KKNetworkErrorViewDelegate> kDelegate;
-@property (nonatomic, strong) NSString *emptyMes;
+@property (nonatomic, weak) id<MRJNetworkErrorViewDelegate> MRJdelegate;
+@property (nonatomic, copy) NSString *emptyMes;
 @property (nonatomic, strong) UIImage *emptyImage;
-+(id)node;
++ (id)node;
 @end

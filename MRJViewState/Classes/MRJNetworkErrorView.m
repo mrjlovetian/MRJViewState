@@ -16,15 +16,15 @@
 @property (nonatomic, strong) UIImageView *iv;
 @property (nonatomic, strong) UILabel *lbText;
 @end
+
 @implementation MRJNetworkErrorView
 
-+(id)node{
++ (id)node{
     CGRect frame = CGRectMake(0, MRJ_NAV_HEITHT, MRJ_SCREEN.width, MRJ_SCREEN.height - MRJ_NAV_HEITHT);
     MRJNetworkErrorView *view = [[MRJNetworkErrorView alloc] initWithFrame:frame];
     view.tag = 999999;
     return view;
 }
-
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,13 +32,11 @@
     if (self) {
         // Initialization code
         [self initUI];
-        
     }
     return self;
 }
 
-
--(void)initUI
+- (void)initUI
 {
     self.backgroundColor = [UIColor whiteColor];
     UIImage *img = [UIImage imageNamed:@"network_error"];
@@ -47,48 +45,42 @@
     _iv.center = centPoint;
     [self addSubview:_iv];
     
-    _lbText = [[UILabel alloc]initWithFrame:CGRectMake(0, _iv.frame.size.height + _iv.frame.origin.y + 14, MRJ_SCREEN.width, 18)];
+    _lbText = [[UILabel alloc] initWithFrame:CGRectMake(0, _iv.frame.size.height + _iv.frame.origin.y + 14, MRJ_SCREEN.width, 18)];
     _lbText.text = @"网络中断";
     _lbText.textAlignment = NSTextAlignmentCenter;
     _lbText.textColor = [UIColor grayColor];
     _lbText.font = [UIFont systemFontOfSize:13];
     [self addSubview:_lbText];
     
-    
-    UILabel *lbText2 = [[UILabel alloc]initWithFrame:CGRectMake(0, _lbText.frame.size.height + _lbText.frame.origin.y, MRJ_SCREEN.width, 18)];
+    UILabel *lbText2 = [[UILabel alloc] initWithFrame:CGRectMake(0, _lbText.frame.size.height + _lbText.frame.origin.y, MRJ_SCREEN.width, 18)];
     lbText2.text = @"请点击屏幕刷新";
     lbText2.textAlignment = NSTextAlignmentCenter;
     lbText2.textColor = [UIColor grayColor];
     lbText2.font = [UIFont systemFontOfSize:13];
     [self addSubview:lbText2];
     
-    
-    UIButton *btn = [[UIButton alloc]initWithFrame:self.bounds];
+    UIButton *btn = [[UIButton alloc] initWithFrame:self.bounds];
     btn.backgroundColor = [UIColor clearColor];
     [self addSubview:btn];
     
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [btn onClicked:self action:@selector(btnClick:)];
 }
 
 - (void)setEmptyMes:(NSString *)emptyMes{
-    
     _emptyMes = emptyMes;
     self.lbText.text = _emptyMes;
 }
 
 - (void)setEmptyImage:(UIImage *)emptyImage{
-    
     _emptyImage = emptyImage;
     self.iv.image = _emptyImage;
 
 }
-- (void)btnClick:(UIButton *)btn
-{
+
+- (void)btnClick:(UIButton *)btn{
     self.hidden = YES;
-    if (self.kDelegate) {
-        
-        [self.kDelegate clickRefreshKKNetworkErrorView:self];
+    if (self.MRJdelegate) {
+        [self.MRJdelegate clickRefreshKKNetworkErrorView:self];
     }
 }
 

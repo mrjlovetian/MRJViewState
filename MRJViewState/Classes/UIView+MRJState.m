@@ -19,15 +19,14 @@
 @property(nonatomic,strong)UIButton *titleLabel;
 
 @end
+
 #define LoadingStateBackgroundColor [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1.0f]
 
 @implementation UIView (MRJState)
 
-
 @dynamic currentLoadingState;
 
-
--(void)setCurrentLoadingState:(MRJLoadDataState)currentLoadingState{
+- (void)setCurrentLoadingState:(MRJLoadDataState)currentLoadingState{
     
     if (self.currentLoadingState != currentLoadingState) {
         if (self.currentLoadingState == MRJLoadDataStateNoData) {
@@ -121,11 +120,12 @@
         
     }
 }
--(MRJLoadDataState)currentLoadingState{
+
+- (MRJLoadDataState)currentLoadingState{
     return [objc_getAssociatedObject(self, @selector(currentLoadingState)) integerValue];
 }
 
--(MRJLoadStateProperty *)loadingStateProperties{
+- (MRJLoadStateProperty *)loadingStateProperties{
     if (objc_getAssociatedObject(self, _cmd)==nil) {
         MRJLoadStateProperty *properties=[MRJLoadStateProperty defaultProperties];
         objc_setAssociatedObject(self, _cmd, properties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -136,13 +136,13 @@
 }
 
 
--(void)setNoDataView:(UIView *)noDataView{
+- (void)setNoDataView:(UIView *)noDataView{
     
     objc_setAssociatedObject(self, @selector(noDataView), noDataView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     
 }
--(UIView*)noDataView{
+- (UIView*)noDataView{
     if (objc_getAssociatedObject(self, _cmd)==nil) {
         UIView *bgView=UIView.new;
         bgView.backgroundColor = LoadingStateBackgroundColor;;
@@ -175,8 +175,8 @@
     
 }
 
--(UIView *)networkFailedView{
-    if (objc_getAssociatedObject(self, _cmd)==nil) {
+- (UIView *)networkFailedView{
+    if (objc_getAssociatedObject(self, _cmd) == nil) {
         UIView *bgView=UIView.new;
         bgView.backgroundColor=[UIColor clearColor];
         UIView *customerView=[self.loadingStateProperties customerViewForError:self.loadingStateProperties.error.code];
@@ -204,15 +204,18 @@
         return networkFailedView;
     }
 }
--(void)setNetworkFailedView:(UIView *)networkFailedView{
+
+- (void)setNetworkFailedView:(UIView *)networkFailedView{
     objc_setAssociatedObject(self, @selector(networkFailedView), networkFailedView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(void)reloadNetworkBlockClicked:(id)sender{
+
+- (void)reloadNetworkBlockClicked:(id)sender{
     if (self.loadingStateProperties.reloadNetworkBlock) {
         self.loadingStateProperties.reloadNetworkBlock();
     }
 }
--(UIView*)waitingView{
+
+- (UIView*)waitingView{
     if (objc_getAssociatedObject(self, _cmd)==nil) {
         UIView *bgView=UIView.new;
         bgView.backgroundColor=[UIColor clearColor];
@@ -227,7 +230,6 @@
             [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
             [SVProgressHUD setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.8f]];
             [bgView addSubview:MRJLoadingDataView];
-//            [bgView addSubview:[MRJLoadingDataView valueForKey:@"overlayView"]];
             [MRJLoadingDataView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(bgView);
             }];
@@ -239,12 +241,11 @@
     }
 }
 
--(void)setWaitingView:(UIView *)waitingView{
-    
+- (void)setWaitingView:(UIView *)waitingView{
     objc_setAssociatedObject(self, @selector(waitingView), waitingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
--(UIView *)MRJLoadingDataView{
+
+- (UIView *)MRJLoadingDataView{
     if (objc_getAssociatedObject(self, _cmd)==nil) {
         UIView *bgView = UIView.new;
         bgView.backgroundColor = LoadingStateBackgroundColor;
@@ -270,10 +271,9 @@
         return objc_getAssociatedObject(self, _cmd);
     }
 }
+
 -(void)setMRJLoadingDataView:(UIView *)MRJLoadingDataView{
-    
     objc_setAssociatedObject(self, @selector(MRJLoadingDataView), MRJLoadingDataView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 - (void)clickedImageOrTitle{
@@ -281,7 +281,6 @@
         self.loadingStateProperties.noDataActionBlock();
     }
 }
-
 
 @end
 
@@ -295,14 +294,13 @@
 }
 -(void)setShouldHideReload:(BOOL)shouldHideReload{
     objc_setAssociatedObject(self, @selector(shouldHideReload), @(shouldHideReload), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
 }
 
 @end
 
 @implementation ImageWithTitleView
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame{
     if (self=[super initWithFrame:frame]) {
         
         self.imageView=[[UIButton alloc] init];
