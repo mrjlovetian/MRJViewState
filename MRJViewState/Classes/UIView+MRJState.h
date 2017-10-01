@@ -10,7 +10,7 @@
 
 @class MRJLoadStateProperty;
 
-typedef NS_ENUM(NSInteger, MRJLoadDataState){
+typedef NS_ENUM(NSInteger, MRJLoadDataState) {
     MRJLoadDataStateDefault=0,
     MRJLoadDataStateInitalLoading,//起始加载状态，蓝色覆盖原页面
     MRJLoadDataStateNoData,//无数据状态

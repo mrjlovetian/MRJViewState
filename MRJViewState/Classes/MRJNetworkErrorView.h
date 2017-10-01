@@ -12,6 +12,7 @@
 @protocol MRJNetworkErrorViewDelegate
 
 @required
+
 - (void)clickRefreshKKNetworkErrorView:(MRJNetworkErrorView*)view;
 
 @end

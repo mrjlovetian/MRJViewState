@@ -19,7 +19,7 @@
 
 @implementation MRJNetworkErrorView
 
-+ (id)node{
++ (id)node {
     CGRect frame = CGRectMake(0, MRJ_NAV_HEITHT, MRJ_SCREEN.width, MRJ_SCREEN.height - MRJ_NAV_HEITHT);
     MRJNetworkErrorView *view = [[MRJNetworkErrorView alloc] initWithFrame:frame];
     view.tag = 999999;
@@ -30,14 +30,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [self initUI];
     }
     return self;
 }
 
-- (void)initUI
-{
+- (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
     UIImage *img = [UIImage imageNamed:@"network_error"];
     _iv = [[UIImageView alloc] initWithImage:img];
@@ -62,22 +60,20 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:self.bounds];
     btn.backgroundColor = [UIColor clearColor];
     [self addSubview:btn];
-    
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)setEmptyMes:(NSString *)emptyMes{
+- (void)setEmptyMes:(NSString *)emptyMes {
     _emptyMes = emptyMes;
     self.lbText.text = _emptyMes;
 }
 
-- (void)setEmptyImage:(UIImage *)emptyImage{
+- (void)setEmptyImage:(UIImage *)emptyImage {
     _emptyImage = emptyImage;
     self.iv.image = _emptyImage;
-
 }
 
-- (void)btnClick:(UIButton *)btn{
+- (void)btnClick:(UIButton *)btn {
     self.hidden = YES;
     if (self.MRJdelegate) {
         [self.MRJdelegate clickRefreshKKNetworkErrorView:self];
