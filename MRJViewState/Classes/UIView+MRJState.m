@@ -13,7 +13,7 @@
 #import "Masonry/Masonry.h"
 #import "SVProgressHUD.h"
 
-@interface ImageWithTitleView : UIView
+@interface ImageWithTitleView :UIView
 
 @property(nonatomic,strong)UIButton *imageView;
 @property(nonatomic,strong)UIButton *titleLabel;
@@ -75,18 +75,17 @@
                 break;
             case MRJLoadDataStateLoading:
             {
-                stateView=self.waitingView;
+                stateView = self.waitingView;
                 [stateView.subviews.firstObject showProgress:-1 status:nil];
                 [stateView.subviews.firstObject setDefaultMaskType:SVProgressHUDMaskTypeBlack];
             }
                 break;
             case MRJLoadDataStateNoData:
-                stateView=self.noDataView;
+                stateView = self.noDataView;
                 break;
             case MRJLoadDataStateNetworkFailed:
-                
-                stateView=[self networkFailedView];
-                stateView.alpha=1;
+                stateView = [self networkFailedView];
+                stateView.alpha = 1;
                 [stateView viewWithTag:1].hidden=self.loadingStateProperties.error.shouldHideReload;
                 ((UILabel*) [stateView viewWithTag:2]).text=self.loadingStateProperties.error.localizedDescription;
                 [stateView viewWithTag:3].hidden=self.loadingStateProperties.error.shouldHideReload;
@@ -119,7 +118,7 @@
 
 - (MRJLoadStateProperty *)loadingStateProperties {
     if (objc_getAssociatedObject(self, _cmd) == nil) {
-        MRJLoadStateProperty *properties=[MRJLoadStateProperty defaultProperties];
+        MRJLoadStateProperty *properties = [MRJLoadStateProperty defaultProperties];
         objc_setAssociatedObject(self, _cmd, properties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         return properties;
     } else {
@@ -132,10 +131,10 @@
 }
 
 - (UIView*)noDataView {
-    if (objc_getAssociatedObject(self, _cmd)==nil) {
+    if (objc_getAssociatedObject(self, _cmd) == nil) {
         UIView *bgView = [[UIView alloc] init];
         bgView.backgroundColor = LoadingStateBackgroundColor;;
-        UIView *customerView=[self.loadingStateProperties customerViewForLoadState:MRJLoadDataStateNoData];
+        UIView *customerView = [self.loadingStateProperties customerViewForLoadState:MRJLoadDataStateNoData];
         if (customerView) {
             [bgView addSubview:customerView];
             [customerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -215,7 +214,7 @@
                 make.edges.equalTo(bgView);
             }];
         }
-        self.waitingView=bgView;
+        self.waitingView = bgView;
         return bgView;
     } else {
         return objc_getAssociatedObject(self, _cmd);
@@ -282,7 +281,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
         self.imageView = [[UIButton alloc] init];
         self.imageView.userInteractionEnabled=YES;
         self.imageView.contentMode=UIViewContentModeCenter;
