@@ -19,9 +19,9 @@
 
 @interface MRJNetworkErrorView : UIView
 
-@property (nonatomic, weak) id<MRJNetworkErrorViewDelegate> MRJdelegate;
-@property (nonatomic, copy) NSString *emptyMes;
-@property (nonatomic, strong) UIImage *emptyImage;
+@property (nonatomic, weak)id<MRJNetworkErrorViewDelegate> MRJdelegate;
+@property (nonatomic, copy)NSString *emptyMes;
+@property (nonatomic, strong)UIImage *emptyImage;
 
 + (id)node;
 
