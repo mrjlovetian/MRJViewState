@@ -22,5 +22,7 @@
 @property (nonatomic, weak) id<MRJNetworkErrorViewDelegate> MRJdelegate;
 @property (nonatomic, copy) NSString *emptyMes;
 @property (nonatomic, strong) UIImage *emptyImage;
+
 + (id)node;
+
 @end

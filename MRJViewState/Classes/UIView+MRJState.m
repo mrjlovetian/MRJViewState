@@ -189,13 +189,13 @@
     objc_setAssociatedObject(self, @selector(networkFailedView), networkFailedView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)reloadNetworkBlockClicked:(id)sender{
+- (void)reloadNetworkBlockClicked:(id)sender {
     if (self.loadingStateProperties.reloadNetworkBlock) {
         self.loadingStateProperties.reloadNetworkBlock();
     }
 }
 
-- (UIView*)waitingView {
+- (UIView *)waitingView {
     if (objc_getAssociatedObject(self, _cmd) == nil) {
         UIView *bgView = UIView.new;
         bgView.backgroundColor = [UIColor clearColor];
@@ -265,7 +265,7 @@
 
 @implementation NSError (UIViewState)
 
-- (BOOL)shouldHideReload{
+- (BOOL)shouldHideReload {
     if (self.code == -1009 || self.code == -1004 || self.code == -1005) {
         return NO;//网络类错误允许重载
     }
@@ -279,7 +279,7 @@
 
 @implementation ImageWithTitleView
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.imageView = [[UIButton alloc] init];
         self.imageView.userInteractionEnabled=YES;

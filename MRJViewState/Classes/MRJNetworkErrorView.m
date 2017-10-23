@@ -7,7 +7,6 @@
 //
 
 #import "MRJNetworkErrorView.h"
-//#import "UIView+Size.h"#import <UIKit/UIKit.h>
 
 #define MRJ_NAV_HEITHT 64
 #define MRJ_SCREEN [UIScreen mainScreen].bounds.size

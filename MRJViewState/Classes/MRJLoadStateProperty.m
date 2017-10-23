@@ -45,6 +45,7 @@
         [self.customerViewDictionary setObject:view forKey:@(loadState)];
     }
 }
+
 - (UIView *)customerViewForLoadState:(MRJLoadDataState)loadState {
     return [self.customerViewDictionary objectForKey:@(loadState)];
 }
