@@ -9,8 +9,10 @@
 #import "MRJLoadStateProperty.h"
 
 @interface MRJLoadStateProperty ()
+
 @property(nonatomic, strong) NSMutableDictionary *customerViewDictionary;
 @property(nonatomic, strong) NSMutableDictionary *customerErrorViewDictionary;
+
 @end
 
 @implementation MRJLoadStateProperty

@@ -28,15 +28,15 @@ typedef NS_ENUM(NSInteger, MRJLoadDataState) {
  */
 @interface UIView (MRJState)
 
-@property(nonatomic)MRJLoadDataState currentLoadingState;
-
-@property(nonatomic, readonly)MRJLoadStateProperty *loadingStateProperties;
+@property (nonatomic)MRJLoadDataState currentLoadingState;
+@property (nonatomic, readonly)MRJLoadStateProperty *loadingStateProperties;
 
 @end
 
 @interface NSError (UIViewState)
 
-@property(nonatomic)BOOL shouldHideReload;
+@property (nonatomic)BOOL shouldHideReload;
+
 @end
 
 

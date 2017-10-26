@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class MRJNetworkErrorView;
+
 @protocol MRJNetworkErrorViewDelegate
 
 @required

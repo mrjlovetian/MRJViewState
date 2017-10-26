@@ -282,7 +282,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.imageView = [[UIButton alloc] init];
-        self.imageView.userInteractionEnabled=YES;
+        self.imageView.userInteractionEnabled = YES;
         self.imageView.contentMode=UIViewContentModeCenter;
         self.titleLabel = [[UIButton alloc] init];
         self.titleLabel.titleLabel.textAlignment=NSTextAlignmentCenter;
