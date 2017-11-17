@@ -60,7 +60,7 @@
         //放在superview上可以防止直接放在self上会出现点击事件传递到原界面情况
         UIView *superView = self;
         if (![superView isKindOfClass:[UIView class]]) {
-            superView=self;
+            superView = self;
         }
         UIView *stateView = nil;
         switch (currentLoadingState) {
@@ -162,7 +162,7 @@
     if (objc_getAssociatedObject(self, _cmd) == nil) {
         UIView *bgView = UIView.new;
         bgView.backgroundColor= [UIColor clearColor];
-        UIView *customerView=[self.loadingStateProperties customerViewForError:self.loadingStateProperties.error.code];
+        UIView *customerView = [self.loadingStateProperties customerViewForError:self.loadingStateProperties.error.code];
         if (customerView) {
             [bgView addSubview:customerView];
             [customerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -283,7 +283,7 @@
     if (self = [super initWithFrame:frame]) {
         self.imageView = [[UIButton alloc] init];
         self.imageView.userInteractionEnabled = YES;
-        self.imageView.contentMode=UIViewContentModeCenter;
+        self.imageView.contentMode = UIViewContentModeCenter;
         self.titleLabel = [[UIButton alloc] init];
         self.titleLabel.titleLabel.textAlignment=NSTextAlignmentCenter;
         self.titleLabel.titleLabel.numberOfLines=0;

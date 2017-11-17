@@ -64,14 +64,14 @@
 
 - (NSMutableDictionary *)customerViewDictionary {
     if (!_customerViewDictionary) {
-        _customerViewDictionary=[NSMutableDictionary dictionaryWithCapacity:5];
+        _customerViewDictionary = [NSMutableDictionary dictionaryWithCapacity:5];
     }
     return _customerViewDictionary;
 }
 
 - (NSMutableDictionary *)customerErrorViewDictionary {
     if(!_customerErrorViewDictionary) {
-        _customerErrorViewDictionary=[NSMutableDictionary dictionaryWithCapacity:3];
+        _customerErrorViewDictionary = [NSMutableDictionary dictionaryWithCapacity:3];
     }
     return _customerErrorViewDictionary;
 }
