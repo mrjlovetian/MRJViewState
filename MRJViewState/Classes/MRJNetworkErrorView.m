@@ -12,8 +12,10 @@
 #define MRJ_SCREEN [UIScreen mainScreen].bounds.size
 
 @interface MRJNetworkErrorView()
+
 @property (nonatomic, strong) UIImageView *iv;
 @property (nonatomic, strong) UILabel *lbText;
+
 @end
 
 @implementation MRJNetworkErrorView

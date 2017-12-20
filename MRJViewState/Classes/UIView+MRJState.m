@@ -15,8 +15,8 @@
 
 @interface ImageWithTitleView :UIView
 
-@property(nonatomic,strong)UIButton *imageView;
-@property(nonatomic,strong)UIButton *titleLabel;
+@property (nonatomic, strong) UIButton *imageView;
+@property (nonatomic, strong) UIButton *titleLabel;
 
 @end
 
@@ -57,7 +57,7 @@
             }];
         }
         objc_setAssociatedObject(self, @selector(currentLoadingState), @(currentLoadingState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        //放在superview上可以防止直接放在self上会出现点击事件传递到原界面情况
+        /// 放在superview上可以防止直接放在self上会出现点击事件传递到原界面情况
         UIView *superView = self;
         if (![superView isKindOfClass:[UIView class]]) {
             superView = self;
