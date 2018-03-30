@@ -36,13 +36,13 @@
                 }
                 break;
                 case MRJLoadDataStateInitalLoading:{
-                    UIView *stateView = self.MRJLoadingDataView;
+                    UIView *stateView = self.mrjloadingDataView;
                     [UIView animateWithDuration:0.4 animations:^{
                         stateView.alpha = 0;
                     } completion:^(BOOL finished) {
                         [stateView.subviews.firstObject dismiss];
                         [stateView removeFromSuperview];
-                        self.MRJLoadingDataView = nil;
+                        self.mrjloadingDataView = nil;
                     }];
                 }
                 break;
@@ -64,7 +64,7 @@
                     }];
                 }
                 case MRJLoadDataStateDefault: {
-                    <#code#>
+                    
                     break;
                 }
         }
@@ -82,7 +82,7 @@
             case MRJLoadDataStateDefault:
                 break;
             case MRJLoadDataStateInitalLoading: {
-                stateView = self.MRJLoadingDataView;
+                stateView = self.mrjloadingDataView;
                 [stateView.subviews.firstObject showProgress:-1 status:nil];
                 [stateView.subviews.firstObject setDefaultMaskType:SVProgressHUDMaskTypeNone];
             }
@@ -99,9 +99,9 @@
             case MRJLoadDataStateNetworkFailed:
                 stateView = [self networkFailedView];
                 stateView.alpha = 1;
-                [stateView viewWithTag:1].hidden=self.loadingStateProperties.error.shouldHideReload;
-                ((UILabel*) [stateView viewWithTag:2]).text=self.loadingStateProperties.error.localizedDescription;
-                [stateView viewWithTag:3].hidden=self.loadingStateProperties.error.shouldHideReload;
+                [stateView viewWithTag:1].hidden = self.loadingStateProperties.error.shouldHideReload;
+                ((UILabel*) [stateView viewWithTag:2]).text = self.loadingStateProperties.error.localizedDescription;
+                [stateView viewWithTag:3].hidden = self.loadingStateProperties.error.shouldHideReload;
                 break;
         }
         if (stateView) {
@@ -219,11 +219,11 @@
                 make.edges.equalTo(bgView);
             }];
         } else {
-            SVProgressHUD *MRJLoadingDataView = [[SVProgressHUD alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+            SVProgressHUD *mrjloadingDataView = [[SVProgressHUD alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
             [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
             [SVProgressHUD setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.8f]];
-            [bgView addSubview:MRJLoadingDataView];
-            [MRJLoadingDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [bgView addSubview:mrjloadingDataView];
+            [mrjloadingDataView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(bgView);
             }];
         }
@@ -238,7 +238,7 @@
     objc_setAssociatedObject(self, @selector(waitingView), waitingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UIView *)MRJLoadingDataView{
+- (UIView *)mrjloadingDataView {
     if (objc_getAssociatedObject(self, _cmd) == nil) {
         UIView *bgView = UIView.new;
         bgView.backgroundColor = LoadingStateBackgroundColor;
@@ -257,15 +257,15 @@
                 make.edges.equalTo(bgView);
             }];
         }
-        self.MRJLoadingDataView = bgView;
+        self.mrjloadingDataView = bgView;
         return bgView;
     } else {
         return objc_getAssociatedObject(self, _cmd);
     }
 }
 
-- (void)setMRJLoadingDataView:(UIView *)MRJLoadingDataView {
-    objc_setAssociatedObject(self, @selector(MRJLoadingDataView), MRJLoadingDataView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setMrjloadingDataView:(UIView *)mrjloadingDataView {
+    objc_setAssociatedObject(self, @selector(mrjloadingDataView), mrjloadingDataView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)clickedImageOrTitle {
