@@ -38,7 +38,9 @@
 
 - (UIImage *)noDataImage {
     if (!_noDataImage) {
-        return [UIImage imageNamed:@"commentDefaultPage_ico"];
+        NSURL *boundleUrl = [[NSBundle bundleForClass:[MRJLoadStateProperty class]] URLForResource:@"MRJViewState" withExtension:@"bundle"];
+        NSBundle *loadBundle = [NSBundle bundleWithURL:boundleUrl];
+        return [UIImage imageNamed:[loadBundle pathForResource:@"commentDefaultPage_ico@2x" ofType:@"png"]];
     }
     return _noDataImage;
 }

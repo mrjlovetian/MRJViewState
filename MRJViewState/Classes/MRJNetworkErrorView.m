@@ -37,7 +37,9 @@
 
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
-    UIImage *img = [UIImage imageNamed:@"network_error"];
+    NSURL *boundleUrl = [[NSBundle bundleForClass:[MRJNetworkErrorView class]] URLForResource:@"MRJViewState" withExtension:@"bundle"];
+    NSBundle *citysBundle = [NSBundle bundleWithURL:boundleUrl];
+    UIImage *img = [UIImage imageNamed:[citysBundle pathForResource:@"network_error@2x" ofType:@"png"]];
     _iv = [[UIImageView alloc] initWithImage:img];
     CGPoint centPoint = CGPointMake(MRJ_SCREEN.width/2, self.frame.size.height/2.0 - _iv.frame.size.height - 20);
     _iv.center = centPoint;

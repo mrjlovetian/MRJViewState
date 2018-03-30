@@ -8,8 +8,9 @@
 
 #import "MRJViewController.h"
 #import <MRJViewState/UIView+MRJState.h>
+#import "MRJNetworkErrorView.h"
 
-@interface MRJViewController ()
+@interface MRJViewController () <MRJNetworkErrorViewDelegate>
 
 @end
 
@@ -30,14 +31,21 @@
 - (void)click:(UIButton *)btn{
     self.view.currentLoadingState = MRJLoadDataStateLoading;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.view.currentLoadingState = MRJLoadDataStateNoData;
+        
         self.view.currentLoadingState = MRJLoadDataStateNetworkFailed;
+        MRJNetworkErrorView *netErrorView = [MRJNetworkErrorView node];
+        netErrorView.tag = 66;
+        netErrorView.delegate = self;
+        [self.view addSubview:netErrorView];
     });
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark MRJNetworkErrorViewDelegate
+
+- (void)clickRefreshKKNetworkErrorView:(MRJNetworkErrorView *)view {
+    self.view.currentLoadingState = MRJLoadDataStateDefault;
+    [self.view viewWithTag:66].hidden = YES;
 }
 
 @end

@@ -6,8 +6,6 @@
 //  Copyright (c) 2017 mrjlovetian@gmail.com. All rights reserved.
 //
 
-
-
 #import "UIView+MRJState.h"
 #import <objc/runtime.h>
 #import "Masonry/Masonry.h"
@@ -100,15 +98,17 @@
                 stateView = [self networkFailedView];
                 stateView.alpha = 1;
                 [stateView viewWithTag:1].hidden = self.loadingStateProperties.error.shouldHideReload;
-                ((UILabel*) [stateView viewWithTag:2]).text = self.loadingStateProperties.error.localizedDescription;
+                ((UILabel *) [stateView viewWithTag:2]).text = self.loadingStateProperties.error.localizedDescription;
                 [stateView viewWithTag:3].hidden = self.loadingStateProperties.error.shouldHideReload;
                 break;
         }
+        
         if (stateView) {
             [superView addSubview:stateView];
             UIEdgeInsets insets = self.loadingStateProperties.loadingAreaInsets;
             if (self.loadingStateProperties.ignoreNavBar == NO) {
-                insets.top += 64;
+//                insets.top += 64;
+                insets.top += 0;
             }
             [stateView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(superView).with.offset(insets.top);
@@ -184,7 +184,7 @@
         } else {
             UIView *networkFailedView= [[[NSBundle bundleForClass:[MRJLoadStateProperty class]] loadNibNamed:@"MRJLoadDataStateNetworkFailed" owner:nil options:nil] lastObject];
             objc_setAssociatedObject(self, _cmd, networkFailedView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-            [((UIButton*)[networkFailedView viewWithTag:1]) addTarget:self action:@selector(reloadNetworkBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [((UIButton *)[networkFailedView viewWithTag:1]) addTarget:self action:@selector(reloadNetworkBlockClicked:) forControlEvents:UIControlEventTouchUpInside];
             [bgView addSubview:networkFailedView];
             [networkFailedView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(bgView);

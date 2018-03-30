@@ -1,6 +1,6 @@
 PODS:
   - Masonry (1.0.2)
-  - MRJViewState (0.2.0.7):
+  - MRJViewState (0.2.0.9):
     - Masonry
     - SVProgressHUD
   - SVProgressHUD (2.2.1)
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  MRJViewState: b1d919ceb4685ad99caf17597eadd9c37cb98562
+  MRJViewState: 80dc0070896179d86cfdb36879b6d8ad618b664c
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
 
 PODFILE CHECKSUM: 618dad142415e66052e4aba97ff99088a78e2b15
