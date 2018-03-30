@@ -16,6 +16,7 @@
 @end
 
 @implementation MRJLoadStateProperty
+
 + (instancetype)defaultProperties {
     MRJLoadStateProperty *properties = [[MRJLoadStateProperty alloc] init];
     return properties;

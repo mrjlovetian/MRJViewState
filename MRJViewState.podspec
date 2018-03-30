@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MRJViewState'
-  s.version          = '0.2.0.7'
+  s.version          = '0.2.0.8'
   s.summary          = '网络加载时的填充页面，处理网络请求回来的各种状态展示'
 
 # This description is used to generate tags and improve search results.

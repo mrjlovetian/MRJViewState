@@ -75,8 +75,8 @@
 
 - (void)btnClick:(UIButton *)btn {
     self.hidden = YES;
-    if (self.MRJdelegate) {
-        [self.MRJdelegate clickRefreshKKNetworkErrorView:self];
+    if ([self.delegate respondsToSelector:@selector(clickRefreshKKNetworkErrorView:)]) {
+        [self.delegate clickRefreshKKNetworkErrorView:self];
     }
 }
 

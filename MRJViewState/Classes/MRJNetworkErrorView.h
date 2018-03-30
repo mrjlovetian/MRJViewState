@@ -10,7 +10,7 @@
 
 @class MRJNetworkErrorView;
 
-@protocol MRJNetworkErrorViewDelegate
+@protocol MRJNetworkErrorViewDelegate <NSObject>
 
 @required
 
@@ -20,7 +20,7 @@
 
 @interface MRJNetworkErrorView : UIView
 
-@property (nonatomic, weak) id<MRJNetworkErrorViewDelegate> MRJdelegate;
+@property (nonatomic, weak) id<MRJNetworkErrorViewDelegate> delegate;
 @property (nonatomic, copy) NSString *emptyMes;
 @property (nonatomic, strong) UIImage *emptyImage;
 
