@@ -20,6 +20,15 @@ it, simply add the following line to your Podfile:
 pod 'MRJViewState'
 ```
 
+## use
+* netWorkError
+
+![](netError.gif)
+
+* noData
+
+![](noData.gif)
+
 ## Author
 
 mrjlovetian@gmail.com, mrjyuhongjiang@gmail.com
@@ -28,3 +37,5 @@ mrjlovetian@gmail.com, mrjyuhongjiang@gmail.com
 
 MRJViewState is available under the MIT license. See the LICENSE file for more info.
 # MRJViewState
+
+

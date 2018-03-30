@@ -16,15 +16,24 @@
 
 @implementation MRJViewController
 
-- (void)viewDidLoad
-{
+#pragma mark Method
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(60, 60, 60, 60);
-    btn.backgroundColor = [UIColor redColor];
+    btn.frame = CGRectMake(10, 60, 100, 60);
+    [btn setTitle:@"网络错误" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    UIButton *btna = [UIButton buttonWithType:UIButtonTypeCustom];
+    btna.frame = CGRectMake(160, 60, 100, 60);
+    [btna setTitle:@"没有数据" forState:UIControlStateNormal];
+    [btna setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+    [btna addTarget:self action:@selector(clicka) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btna];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -38,6 +47,13 @@
         netErrorView.tag = 66;
         netErrorView.delegate = self;
         [self.view addSubview:netErrorView];
+    });
+}
+
+- (void)clicka {
+    self.view.currentLoadingState = MRJLoadDataStateLoading;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.view.currentLoadingState = MRJLoadDataStateNoData;
     });
 }
 
