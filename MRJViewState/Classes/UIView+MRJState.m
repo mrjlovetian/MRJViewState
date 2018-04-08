@@ -107,7 +107,6 @@
             [superView addSubview:stateView];
             UIEdgeInsets insets = self.loadingStateProperties.loadingAreaInsets;
             if (self.loadingStateProperties.ignoreNavBar == NO) {
-//                insets.top += 64;
                 insets.top += 0;
             }
             [stateView mas_makeConstraints:^(MASConstraintMaker *make) {
