@@ -26,7 +26,6 @@
 
 - (void)setCurrentLoadingState:(MRJLoadDataState)currentLoadingState {
     if (self.currentLoadingState != currentLoadingState) {
-        
         switch (self.currentLoadingState) {
                 case MRJLoadDataStateNoData:{
                     [self.noDataView removeFromSuperview];
@@ -62,7 +61,6 @@
                     }];
                 }
                 case MRJLoadDataStateDefault: {
-                    
                     break;
                 }
         }
@@ -283,6 +281,7 @@
     }
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
+
 - (void)setShouldHideReload:(BOOL)shouldHideReload{
     objc_setAssociatedObject(self, @selector(shouldHideReload), @(shouldHideReload), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

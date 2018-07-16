@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "UIView+MRJState.h"
 
-typedef void (^NetworkReloadBlock)();
-typedef void (^NoDataActionBlock)();
+typedef void (^NetworkReloadBlock)(void);
+typedef void (^NoDataActionBlock)(void);
 
 @interface MRJLoadStateProperty : NSObject
 
@@ -26,7 +26,6 @@ typedef void (^NoDataActionBlock)();
 @property(nonatomic, assign) UIEdgeInsets loadingAreaInsets;
 /// 忽略导航高度，默认NO
 @property(nonatomic, assign) BOOL ignoreNavBar;
-
 /// 设置自定义视图，暂时支持无数据与初始状态自定义
 - (void)setCustomerView:(UIView *)view forLoadState:(MRJLoadDataState)loadState;
 /// 设置不同错误码显示视图
